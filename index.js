@@ -316,9 +316,9 @@ async function calcul_two(number1, number2, sign) {
     let img = document.createElement('img')
     img.id = `img_${ques}`
     if(check) {
-        img.src = './icons8-close-16.png'
-    } else {
         img.src = './icons8-select-16.png'
+    } else {
+        img.src = './icons8-close-16.png'
     }
     let ques_number = document.createElement('span')
     ques_number.textContent = c_his
