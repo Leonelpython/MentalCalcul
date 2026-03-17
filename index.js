@@ -13,6 +13,8 @@ let response = document.getElementById('Response')
 let enter = document.getElementById('enter')
 let count = document.getElementById('count')
 let operator = document.getElementById('operator')
+let h_but = document.getElementById('h_but')
+let history_area = document.querySelector('.history_area')
 
 let range = ranges_number.value
 let sign = '*'
@@ -22,7 +24,9 @@ let ctb = countdown.value
 ctb *= 1000
 let ques = questionsNumber.value
 let total = questionsNumber.value
+
 let found = 0
+let c_his = 0
 let time = null
 
 ranges_number.addEventListener('click', () => {
@@ -74,6 +78,19 @@ start.addEventListener('click', async () => {
         document.getElementById('final_result').remove()
     }
 
+    let history = document.createElement('div')
+    history.id = 'history'
+    history.style.display = 'flex'
+    history.style.flexDirection = 'column'
+    history.style.right = '5%'
+    history.style.height = '90%'
+    history.style.width = '5%'
+    history.style.visibility = 'hidden'
+    history.style.alignItems = 'flex-end'
+
+    let h_button = document.createElement('img')
+    h_button.src = ''
+
     calcul_area.style.visibility = 'visible'
     result.style.visibility = 'visible'
     result_area.style.visibility = 'visible'
@@ -95,6 +112,7 @@ start.addEventListener('click', async () => {
             result.textContent = ''
             await one()
             ques -= 1
+            c_his += 1
         }, int)
     } else {
         time = setInterval(async () => {
@@ -106,6 +124,7 @@ start.addEventListener('click', async () => {
             result.textContent = ''
             await two()
             ques -= 1
+            c_his += 1
         }, int)
     }
 })
@@ -261,33 +280,72 @@ async function calcul_one(number, sign) {
 
 async function calcul_two(number1, number2, sign) {
     r = 0
+    check = false
     if(sign == '+') {
-        r = await number1 + number2
+        r = number1 + number2
     } 
     if(sign == '-') {
-        r = await number1 - number2
+        r = number1 - number2
     }
     if(sign == '*') {
-        r = await number1 * number2
+        r = number1 * number2
     }
     if(sign == '/') {
-        r = await number1 / number2
+        r = number1 / number2
     }
 
-    if(document.getElementById('Response').value == r) {
+    if(parseInt(response.value) != '' && parseInt(response.value) === r) {
         result.style.color = 'green'
+        check = true
         found += 1
     } else {
         result.style.color = 'red'
+        check = false
     }
+
+    console.log(`res: ${parseInt(response.value)}`)
+    console.log(`r: ${r}`)
+
     result.textContent = r
+
+    let div = document.createElement('div')
+    div.style.display = 'flex'
+    div.style.flexDirection = 'row'
+    let span = document.createElement('span')
+    span.textContent = `Result: ${r} - Response: ${response.value}`
+    let img = document.createElement('img')
+    img.id = `img_${ques}`
+    if(check) {
+        img.src = './icons8-close-16.png'
+    } else {
+        img.src = './icons8-select-16.png'
+    }
+    let ques_number = document.createElement('span')
+    ques_number.textContent = c_his
+    ques_number.style.border = '1px solid'
+    ques_number.style.borderRadius = '50% 50%'
+    ques_number.style.width = '30px'
+    div.appendChild(span)
+    div.appendChild(img)
+    div.appendChild(ques_number)
+    history_area.appendChild(div)
+
     document.getElementById('Response').value = ''
+
     return result.textContent
 }
+
+h_but.addEventListener('click', (e) => {
+    if(history_area.style.visibility == 'visible') {
+        history_area.style.visibility = 'hidden'
+    } else {
+        history_area.style.visibility = 'visible'
+    }
+})
 
 async function display() {
     let span = document.createElement('span')
     span.id = 'final_result'
     span.textContent = `Final Result: ${found}/${total}`
-    document.body.appendChild(span)
+    document.getElementById('main').appendChild(span)
 }
