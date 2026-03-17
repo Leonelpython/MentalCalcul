@@ -155,15 +155,15 @@ async function two() {
 
     response.addEventListener('keypress', async (e) => {
         if(e.key == 'Enter') {
-            await calcul_two(parseInt(n1), parseInt(n2), sign)
             clearInterval(int)
+            await calcul_two(parseInt(n1), parseInt(n2), sign)
             return
         }
     })
 
     enter.addEventListener('click', async () => {
-        await calcul_two(parseInt(n1), parseInt(n2), sign)
         clearInterval(int)
+        await calcul_two(parseInt(n1), parseInt(n2), sign)
         return
     })
 
