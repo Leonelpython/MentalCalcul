@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./index.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Calcul Practice</h1>
+    <div class="choice">
+        <div>
+            <label for="questionsNumber">How Many Questions</label>
+            <select id="questionsNumber">
+                <option value="40">40</option>
+                <option value="80">80</option>
+                <option value="120">120</option>
+                <option value="160">160</option>
+                <option value="900">900</option>
+            </select>
+        </div>
+        <div>
+            <label for="Countdown">Timer</label>
+            <select id="Countdown">
+                <option value="3">3</option>
+                <option value="6">6</option>
+                <option value="9">9</option>
+                <option value="12">12</option>
+                <option value="16">16</option>
+                <option value="20">20</option>
+                <option value="60">60</option>
+                <option value="120">120</option>
+            </select>
+        </div>
+        <div>
+            <label for="range_numbers">How Many Number</label>
+            <select id="range_numbers">
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="6">6</option>
+                <option value="9">9</option>
+                <option value="12">12</option>
+                <option value="15">15</option>
+            </select>
+        </div>
+        <div>
+            <label for="choose_operator">Choose an operator</label>
+            <select id="choose_operator">
+                <option value="multiplication(*)">multiplication(*)</option>
+                <option value="addition(+)">addition(+)</option>
+                <option value="substraction(-)">substraction(-)</option>
+                <option value="division(/)">division(/)</option>
+                <option value="square root(√)">square(√)</option>
+                <option value="square(²)">carre(²)</option>
+            </select>
+        </div>
+    </div>
+    <button id="Start">Start</button>
+    <div class="calcul_area">
+        <span id="number_1"></span>
+        <span id="operator"></span>
+        <span id="number_2"></span>
+    </div>
+    <div class="result">
+        <span id="Result"></span>
+    </div>
+    <span id="count"></span>
+    <div class="response_area">
+        <input type="text" id="Response" placeholder="Enter result" autocomplete="off">
+        <button id="enter">Enter</button>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>

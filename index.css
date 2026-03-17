@@ -1,0 +1,92 @@
+html, body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    color: #000;
+    justify-content: space-around;
+    align-items: center;
+    background-color: yellow;
+}
+
+.choice {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.calcul_area {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    visibility: hidden;
+    row-gap: 60px;
+    border: 1px solid black;
+    background-color: rgb(65, 65, 65);
+    color: white;
+    font-size: xx-large;
+    width: 50%;
+    height: 40px;
+    border-radius: 5px
+}
+
+.response_area {
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+    visibility: hidden;
+    font-size: xx-large;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 241px;
+    border: 1px solid black;
+    color: white;
+    background-color: rgb(65, 65, 65);
+    font-size: xx-large;
+    visibility: hidden;
+    height: 40px;
+    width: 50%;
+    border-radius: 5px;
+}
+
+#Start {
+    background-color: blue;
+    border-radius: 5px;
+    color: white;
+    width: 100px;
+    cursor: pointer;
+    height: 30px;
+}
+
+#count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: blue;
+    visibility: hidden;
+    font-size: xx-large;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50% 50%;
+    width: 30px;
+    background-color: red;
+}
+
+#Response {
+    background-color: rgb(65, 65, 65);
+    color: white;
+    height: 30px;
+    width: 711px;
+    border-radius: 5px;
+}
+
+#enter {
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+}
