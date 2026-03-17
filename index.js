@@ -23,6 +23,7 @@ ctb *= 1000
 let ques = questionsNumber.value
 let total = questionsNumber.value
 let found = 0
+let time = null
 
 ranges_number.addEventListener('click', () => {
     range = parseInt(ranges_number.value)
@@ -62,6 +63,16 @@ start.addEventListener('click', async () => {
     number2.textContent = ''
     result.textContent = ''
     operator.textContent = ''
+    count.textContent = ''
+    response.value = ''
+
+    if(time != null) {
+        clearInterval(time)
+    }
+
+    if(document.getElementById('final_result') != null) {
+        document.getElementById('final_result').remove()
+    }
 
     calcul_area.style.visibility = 'visible'
     result.style.visibility = 'visible'
@@ -75,7 +86,7 @@ start.addEventListener('click', async () => {
     if(sign == '√' || sign == '²') {
         number2.style.display = 'none'
         operator.style.display = 'none'
-        let time = setInterval(async () => {
+        time = setInterval(async () => {
             if(ques == 0) {
                 clearInterval(time)
                 await display()
@@ -86,7 +97,7 @@ start.addEventListener('click', async () => {
             ques -= 1
         }, int)
     } else {
-        let time = setInterval(async () => {
+        time = setInterval(async () => {
             if(ques == 0) {
                 clearInterval(time)
                 await display()
