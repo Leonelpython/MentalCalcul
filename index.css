@@ -37,13 +37,13 @@ html, body {
     column-gap: 5px;
     visibility: hidden;
     font-size: xx-large;
+    width: 100%;
 }
 
 .result {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 241px;
     border: 1px solid black;
     color: white;
     background-color: rgb(65, 65, 65);
